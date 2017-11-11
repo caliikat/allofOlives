@@ -26,13 +26,11 @@ $(document).ready(function(){
             method: "GET"
         }).done(function(response) {
             var nutrition = response.hints;
-
             for (var j = 0; j < nutrition.length; j++) {
-
-                var nutritionInfoDiv = $("<div>");
+            
+                 var nutritionInfoDiv = $("<div>");
                 nutritionInfoDiv.addClass("putNutritionContentHere");
                 nutritionInfoDiv.append(nutrition[j].food.label);
-
                 $("#putRecipeContentHere").append(nutritionInfoDiv);
             }
              
@@ -65,7 +63,7 @@ $(document).ready(function(){
                     //Tie it to the carousel-item class with the Recipe Name at the bottom
                     newItem.append(recipeImage);
                     var title = recipeObject.recipe.label
-                    var pOne = $("<p>").html("<a" + " href =" + recipeURL + " target='_blank' >" + title + "</a>");
+                    var pOne = $("<p>").html("<a class = 'labelItem'" + " href =" + recipeURL + " target='_blank' >" + title + "</a>");
                     newItem.prepend(pOne);
                     //Grab the carousel and attach the image and Recipe Name
                     $(".carousel").append(newItem);
@@ -83,7 +81,6 @@ $(document).ready(function(){
                     $( this ).attr( 'target', '_blank' );
                     window.open($(this).attr("href"));
                 });
-
                 //to dynamically initialize carousel with jQuery for Materialize
                 if ($(".carousel").hasClass('initialized')){
                     $(".carousel").removeClass('initialized')
